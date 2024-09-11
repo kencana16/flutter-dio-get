@@ -5,4 +5,6 @@ abstract class FakeStoreRepository {
   Future<List<Product>> getAllProducts(GetAllProductsParam param);
 
   Future<List<String>> getAllCategories();
+
+  Future<Product> getProductById(String id);
 }

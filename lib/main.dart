@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fake_store/dependencies.dart';
+import 'package:flutter_fake_store/router.dart';
+import 'package:go_router/go_router.dart';
 
 import 'product/presentation/product_grid.dart';
 
@@ -13,13 +15,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final _router = GoRouter(
+      initialLocation: HomeRoute().location, // location getter is generated.
+      routes: $appRoutes,
+    );
+
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      routerConfig: _router,
     );
   }
 }
@@ -35,7 +42,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Fake Store"),
       ),
-      body: ProductGrid(),
+      body: ProductGridPage(),
     );
   }
 }

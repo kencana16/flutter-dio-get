@@ -21,4 +21,10 @@ class FakeStoreRepositoryImpl extends FakeStoreRepository {
   Future<List<String>> getAllCategories() {
     return _datasource.getAllCategories();
   }
+  
+  @override
+  Future<Product> getProductById(String id) {
+
+    return _datasource.getProductById(id);
+  }
 }

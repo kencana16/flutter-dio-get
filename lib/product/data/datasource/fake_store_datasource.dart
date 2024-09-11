@@ -8,6 +8,8 @@ abstract class FakeStoreDatasource {
   Future<List<Product>> getAllProducts(GetAllProductsParam param);
 
   Future<List<String>> getAllCategories();
+
+  Future<Product> getProductById(String id);
 }
 
 @Injectable(as: FakeStoreDatasource)
@@ -57,5 +59,16 @@ class FakeStoreDatasourceImpl extends FakeStoreDatasource {
                 .whereType<Product>()
                 .toList() ??
             []);
+  }
+
+  @override
+  Future<Product> getProductById(String id) {
+    String path = '/products/$id';
+
+    return _dio
+        .get<Map<String, dynamic>>(
+          path,
+        )
+        .then((value) => Product.fromJson(value.data ?? {}));
   }
 }

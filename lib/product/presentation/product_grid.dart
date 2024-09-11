@@ -8,8 +8,8 @@ import 'package:flutter_fake_store/product/presentation/categories_cubit.dart';
 import 'package:flutter_fake_store/product/presentation/product_grid_item.dart';
 import 'package:flutter_fake_store/product/presentation/products_cubit.dart';
 
-class ProductGrid extends StatelessWidget {
-  const ProductGrid({super.key});
+class ProductGridPage extends StatelessWidget {
+  const ProductGridPage({super.key});
 
   @override
   Widget build(BuildContext context) {
